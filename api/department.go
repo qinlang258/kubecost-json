@@ -3,7 +3,7 @@ package api
 import "time"
 
 type Department struct {
-	Date string
+	Date time.Time
 	Code int `json:"code"`
 	Data struct {
 		Step int64 `json:"step"`

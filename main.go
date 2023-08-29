@@ -38,7 +38,7 @@ func getApp(client *mongo.Client) {
 
 	var app api.App
 	currentTime := time.Now()
-	date := currentTime.AddDate(0, 0, -1).Format("2006-01-02")
+	date := currentTime.AddDate(0, 0, -1)
 	app.Date = date
 	err = json.Unmarshal(bytes, &app)
 	if err != nil {
@@ -75,7 +75,7 @@ func getDepartment(client *mongo.Client) {
 
 	var department api.Department
 	currentTime := time.Now()
-	date := currentTime.AddDate(0, 0, -1).Format("2006-01-02")
+	date := currentTime.AddDate(0, 0, -1)
 	department.Date = date
 	err = json.Unmarshal(bytes, &department)
 	if err != nil {
@@ -111,7 +111,7 @@ func getYewuxian(client *mongo.Client) {
 
 	var yewuxian api.Yewuxian
 	currentTime := time.Now()
-	date := currentTime.AddDate(0, 0, -1).Format("2006-01-02")
+	date := currentTime.AddDate(0, 0, -1)
 	yewuxian.Date = date
 	err = json.Unmarshal(bytes, &yewuxian)
 	if err != nil {
@@ -147,7 +147,7 @@ func getNamespace(client *mongo.Client) {
 
 	var namespace api.Namespace
 	currentTime := time.Now()
-	date := currentTime.AddDate(0, 0, -1).Format("2006-01-02")
+	date := currentTime.AddDate(0, 0, -1)
 
 	namespace.Date = date
 	err = json.Unmarshal(bytes, &namespace)

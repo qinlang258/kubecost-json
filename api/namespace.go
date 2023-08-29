@@ -3,7 +3,7 @@ package api
 import "time"
 
 type Namespace struct {
-	Date string
+	Date time.Time
 	Code int `json:"code"`
 	Data struct {
 		Chart []struct {
