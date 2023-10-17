@@ -3,73 +3,51 @@ package api
 import "time"
 
 type Department struct {
-	Date time.Time
 	Code int `json:"code"`
+	Date string
 	Data struct {
-		Step int64 `json:"step"`
-		Sets []struct {
-			AllocationTrends struct {
-				Shared01 struct {
-					Trends struct {
-						Costs struct {
-							TotalCost struct {
-								RelativeChange struct {
-									IsInfinite bool    `json:"isInfinite"`
-									IsNaN      bool    `json:"isNaN"`
-									Value      float64 `json:"value"`
-								} `json:"relativeChange"`
-							} `json:"totalCost"`
-						} `json:"costs"`
-					} `json:"trends"`
-				} `json:"Shared-01"`
-				Unallocated struct {
-					Trends struct {
-						Costs struct {
-							TotalCost struct {
-								RelativeChange struct {
-									IsInfinite bool    `json:"isInfinite"`
-									IsNaN      bool    `json:"isNaN"`
-									Value      float64 `json:"value"`
-								} `json:"relativeChange"`
-							} `json:"totalCost"`
-						} `json:"costs"`
-					} `json:"trends"`
-				} `json:"__unallocated__"`
-				Dashuju01 struct {
-					Trends struct {
-						Costs struct {
-							TotalCost struct {
-								RelativeChange struct {
-									IsInfinite bool    `json:"isInfinite"`
-									IsNaN      bool    `json:"isNaN"`
-									Value      float64 `json:"value"`
-								} `json:"relativeChange"`
-							} `json:"totalCost"`
-						} `json:"costs"`
-					} `json:"trends"`
-				} `json:"dashuju-01"`
-				Jishuzhongxin01 struct {
-					Trends struct {
-						Costs struct {
-							TotalCost struct {
-								RelativeChange struct {
-									IsInfinite bool    `json:"isInfinite"`
-									IsNaN      bool    `json:"isNaN"`
-									Value      float64 `json:"value"`
-								} `json:"relativeChange"`
-							} `json:"totalCost"`
-						} `json:"costs"`
-					} `json:"trends"`
-				} `json:"jishuzhongxin-01"`
-			} `json:"allocationTrends"`
-			Window struct {
-				Start time.Time `json:"start"`
-				End   time.Time `json:"end"`
-			} `json:"window"`
-		} `json:"sets"`
-		Window struct {
+		Chart []struct {
 			Start time.Time `json:"start"`
 			End   time.Time `json:"end"`
-		} `json:"window"`
+			Items []struct {
+				Name       string  `json:"name"`
+				Cost       float64 `json:"cost"`
+				Efficiency float64 `json:"efficiency"`
+			} `json:"items"`
+		} `json:"chart"`
+		Totals struct {
+			Name                  string  `json:"name"`
+			CPUCost               float64 `json:"cpuCost"`
+			GpuCost               int     `json:"gpuCost"`
+			RAMCost               float64 `json:"ramCost"`
+			PvCost                float64 `json:"pvCost"`
+			NetworkCost           int     `json:"networkCost"`
+			LoadBalancerCost      float64 `json:"loadBalancerCost"`
+			SharedCost            float64 `json:"sharedCost"`
+			ExternalCost          int     `json:"externalCost"`
+			AverageCPUUtilization float64 `json:"averageCpuUtilization"`
+			AverageRAMUtilization float64 `json:"averageRamUtilization"`
+			Efficiency            float64 `json:"efficiency"`
+			TotalCost             float64 `json:"totalCost"`
+		} `json:"totals"`
+		Items struct {
+			Page    int `json:"page"`
+			PerPage int `json:"perPage"`
+			Items   []struct {
+				Name                  string  `json:"name"`
+				CPUCost               float64 `json:"cpuCost"`
+				GpuCost               int     `json:"gpuCost"`
+				RAMCost               float64 `json:"ramCost"`
+				PvCost                float64 `json:"pvCost"`
+				NetworkCost           int     `json:"networkCost"`
+				LoadBalancerCost      float64 `json:"loadBalancerCost"`
+				SharedCost            float64 `json:"sharedCost"`
+				ExternalCost          int     `json:"externalCost"`
+				AverageCPUUtilization float64 `json:"averageCpuUtilization"`
+				AverageRAMUtilization float64 `json:"averageRamUtilization"`
+				Efficiency            float64 `json:"efficiency"`
+				TotalCost             float64 `json:"totalCost"`
+			} `json:"items"`
+		} `json:"items"`
 	} `json:"data"`
 }
