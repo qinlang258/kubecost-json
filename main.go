@@ -52,7 +52,7 @@ func getProject(client *mongo.Client) {
 	}
 
 	// 获取app集合句柄
-	appCollection := client.Database("test").Collection("project")
+	appCollection := client.Database("kubecost").Collection("project")
 	_, err = appCollection.InsertOne(context.TODO(), project)
 
 	if err != nil {
@@ -89,7 +89,7 @@ func getDepartment(client *mongo.Client) {
 	}
 
 	// 获取app集合句柄
-	departmentCollection := client.Database("test").Collection("department")
+	departmentCollection := client.Database("kubecost").Collection("department")
 	_, err = departmentCollection.InsertOne(context.TODO(), department)
 
 	if err != nil {
@@ -125,7 +125,7 @@ func getBusiness(client *mongo.Client) {
 	}
 
 	// 获取app集合句柄
-	yewuxianCollection := client.Database("test").Collection("business")
+	yewuxianCollection := client.Database("kubecost").Collection("business")
 	_, err = yewuxianCollection.InsertOne(context.TODO(), business)
 
 	if err != nil {
@@ -162,7 +162,7 @@ func getNamespace(client *mongo.Client) {
 	}
 
 	// 获取namespace集合句柄
-	appCollection := client.Database("test").Collection("namespace")
+	appCollection := client.Database("kubecost").Collection("namespace")
 	_, err = appCollection.InsertOne(context.TODO(), namespace)
 
 	if err != nil {
@@ -198,7 +198,7 @@ func getDeployment(client *mongo.Client) {
 	}
 
 	// 获取namespace集合句柄
-	appCollection := client.Database("test").Collection("deployment")
+	appCollection := client.Database("kubecost").Collection("deployment")
 	_, err = appCollection.InsertOne(context.TODO(), deployment)
 
 	if err != nil {
@@ -236,7 +236,7 @@ func getDaemonSet(client *mongo.Client) {
 	}
 
 	// 获取namespace集合句柄
-	appCollection := client.Database("test").Collection("daemonset")
+	appCollection := client.Database("kubecost").Collection("daemonset")
 	_, err = appCollection.InsertOne(context.TODO(), daemonset)
 
 	if err != nil {
